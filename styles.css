@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Roboto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 77px;
+    border: 1px solid red;
+}
+nav a {
+    height: fit-content;
+}
+.nav-ul {
+    display: flex;
+    list-style: none;
+    height:fit-content
+}
+.nav-ul li {
+    height: fit-content;
+    margin-left: 20px;
+}
+.nav-inner-right > :last-child {
+    margin-left: 20px;
+}
+.nav-inner-right {
+    display: flex;
+    align-items: center;
+}
+main {
+    padding: 40px 100px;
+}
+h1 {
+    margin-bottom: 20px;
+}
+.booking-form {
+    display: flex;
+    flex-direction: column;
+}
+.date-picker-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.date-picker-container input {
+    padding: 10px;
+}
+button {
+    height: fit-content;
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+    background-color: hotpink;
+    border: none;
+}
+button:hover {
+    cursor: pointer;
+}
+
+.text-inputs input {
+    padding: 5px;
+    margin-bottom: 20px;
+}
+p {
+    margin-bottom: 10px;
+}
+.message-container {
+    margin-top: 20px;
+}
+.message-container p {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.confirmation {
+    background-color: #d4edda;
+    color: #155724;
+}
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.inner-left {
+    display: flex;
+    flex-direction: column;
+}
+.message-container {
+    margin-top: 20px;
+}
+.message-container p {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.confirmation {
+    background-color: #d4edda;
+    color: #155724;
+}
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.booking-list, .user-booking-list {
+    margin-top: 20px;
+}
+.user-booking-list {
+    margin-bottom: 20px;
+}
+.booking-item, .user-booking-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-booking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-booking-item button {
+    margin-left: 10px;
+}
+@media screen and (max-width: 620px) {
+    main {
+        padding: 30px;
+    }
+}
