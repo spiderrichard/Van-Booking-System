@@ -2,6 +2,8 @@
 session_start(); // Start session
 require 'config.php';
 
+$error_message = ''; // Initialize the error message variable
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -29,12 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error_message = "Invalid email or password.";
         }
     } else {
-        $error_message = "Invalid email or password.";
+        $error_message = "No user exists with these credentials."; // Specific message for no user found
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,16 +65,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form method="POST" action="logout.php" style="display:inline;">
                     <button type="submit">Logout</button>
                 </form>
-            <?php else: ?>
             <?php endif; ?>
         </div>
     </nav>
     <main>
-
         <!-- Login Form (only shown if the user is not logged in) -->
         <h1>Login to your account</h1>
 
-        <p>If you don't have an account yet you can sign up <a href="signup.php">here</a>.</p>
+        <p>If you don't have an account yet, you can sign up <a href="signup.php">here</a>.</p>
+
+        <!-- Error message display -->
+        <?php if (!empty($error_message)): ?>
+            <div class="error">
+                <?php echo htmlspecialchars($error_message); ?>
+            </div>
+        <?php endif; ?>
 
         <?php if (!isset($_SESSION['user_id'])): ?>
             <form class="text-inputs" method="POST" action="login.php">
