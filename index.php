@@ -17,23 +17,25 @@ session_start();
 </head>
 <body>
     <nav>
-        <a href="index.php">Home</a>
-        <div class="nav-inner-right">
-            <ul class="nav-ul">
+        <div class="width-control"> 
+            <a href="index.php">Home</a>
+            <div class="nav-inner-right">
+                <ul class="nav-ul">
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li><a href="booking.php">Bookings</a></li>
+                        <li><a href="delete_account.php">Delete Account</a></li>
+                    <?php else: ?>
+                        <li><a href="login.php">Login</a></li>
+                        <li><a href="signup.php">Sign Up</a></li>
+                    <?php endif; ?>
+                </ul>
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <li><a href="booking.php">Bookings</a></li>
-                    <li><a href="delete_account.php">Delete Account</a></li>
+                    <form method="POST" action="logout.php" style="display:inline;">
+                        <button type="submit">Logout</button>
+                    </form>
                 <?php else: ?>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="signup.php">Sign Up</a></li>
                 <?php endif; ?>
-            </ul>
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <form method="POST" action="logout.php" style="display:inline;">
-                    <button type="submit">Logout</button>
-                </form>
-            <?php else: ?>
-            <?php endif; ?>
+            </div>
         </div>
     </nav>
 
